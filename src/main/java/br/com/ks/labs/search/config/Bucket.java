@@ -14,15 +14,16 @@ public class Bucket {
 
     private String  getSystemPath() throws IOException {
         String configPath = System.getenv("SEARCH_PATH");
-        File path = new File(configPath);
-        if (!(path.exists() || path.isDirectory())) {
-            System.out.println("Opsss não foi possivel encontrar o diretorio configurado");
-            System.out.println("Favor configurar a variavel SEARCH_PATH");
-            System.out.println("Comando:  export SEARCH_PATH=diretorio");
-            throw new IOException() ;
+        if (configPath != null) {
+            File path = new File(configPath);
+            if (path.exists() && path.isDirectory()){
+                return configPath;
+            }
         }
-        return configPath;
-
+        System.out.println("Opsss não foi possivel encontrar o diretorio configurado");
+        System.out.println("Favor configurar a variavel SEARCH_PATH");
+        System.out.println("Comando:  export SEARCH_PATH=diretorio");
+        throw new IOException() ;
     }
 
     public Map listFiles() throws IOException {

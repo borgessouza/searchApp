@@ -41,6 +41,11 @@ public class UtilsStringTest {
 
     }
 
+    @Test
+    public void shouldTestFormat() {
+        List<String> listStrings = Arrays.asList("concat the strings");
+        assertEquals("concat the strings ", UtilsString.format(listStrings));
+    }
 
 
 }
