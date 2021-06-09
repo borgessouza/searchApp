@@ -29,5 +29,5 @@ Para isso basta configurar a variável de ambiente SEARCH_PATH
 
 ### Executing 
 ```
-java -jar searchApp.jar {query params}
+java -jar searchApp.jar {query term}
 ```
